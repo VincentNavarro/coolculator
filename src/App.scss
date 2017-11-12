@@ -1,0 +1,150 @@
+@import url(https://fonts.googleapis.com/css?family=Barlow|Roboto+Condensed);
+
+// Color Variables
+$sewerWhite: #F3F8F3;
+$moldWhite: #EEF2E6;
+$almostDark: #010e04;
+$drySpell: #EEEDDB;
+$burntSpell: #cccbbd;
+
+
+// Font variables
+$robotoCondensed: 'Roboto Condensed', sans-serif;
+$barlow: 'Barlow', sans-serif;
+
+// Static variables
+$background: $moldWhite;
+$mainColor: $almostDark;
+$mainFont: $robotoCondensed;
+$displayBackground: $sewerWhite;
+$titleFont: $barlow;
+$active: $burntSpell;
+
+body{
+   width: 100vw;
+   height: 100vh;
+   background-color: $background;
+   color: $mainColor;
+   font-family: $mainFont;
+   text-align: center;
+   padding: 0;
+   margin: 0;
+
+   .wrapper{
+      background-color: $displayBackground;
+      position: absolute;
+      left: 30%;
+      top: 20%;
+      width: 40vw;
+      height: 60vh;
+      box-shadow: 10px 10px 5px 1px rgba(55, 56, 53, 0.2);
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+
+      grid-template-areas: "display  display  display  display"
+                           "modifier modifier modifier operator"
+                           "digit    digit    digit    operator"
+                           "digit    digit    digit    operator"
+                           "digit    digit    digit    operator"
+                           "digit    digit    digit    operator";
+
+      .active{
+         background: $burntSpell !important;
+         transition: background 0.2s ease;
+      }
+
+      button{
+         background: $drySpell;
+         border: none;
+         font-size: 1em;
+
+      }
+
+      button:hover{border: 1px solid $mainColor;}
+
+      // button:active{background-color: $mainColor;}
+
+      .title{
+         position: fixed;
+         top: 5%;
+
+         h1{
+            font-family: $titleFont;
+            font-size: 2.5em;
+            letter-spacing: 6px;
+            text-shadow: 4px 3px 1px rgba(83, 82, 74, 0.60);
+            padding: 0;
+            margin: 0;
+         }
+
+         p{
+            padding: 0 0 0 10px;
+            margin: 0;
+            text-align: left;
+         }
+      }
+
+      .display{
+         grid-area: display;
+
+         text-align: right;
+         background-color: $displayBackground;
+         padding-right: 5%;
+         font-size: 4em;
+         align-self: end;
+         overflow:hidden;
+      }
+
+      .modifiers-grid{
+         grid-area: modifier;
+
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .operators-grid{
+         grid-area: operator;
+
+         display: grid;
+         grid-template-rows: repeat(5,1fr);
+
+
+      }
+
+      .digits-grid{
+         grid-area: digit;
+
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         grid-template-rows: repeat(4, 1fr);
+
+
+         // Align numbers to match calculator (WITH PURE CSS GRID)
+         .key-7{order: 1;}
+         .key-8{order: 2;}
+         .key-9{order: 3;}
+         .key-4{order: 4;}
+         .key-5{order: 5;}
+         .key-6{order: 6;}
+         .key-1{order: 7;}
+         .key-2{order: 8;}
+         .key-3{order: 9;}
+
+
+         // Fix alignment of 0 and decimal key
+         .key-0{
+            grid-column: 1/3;
+            grid-row: 4;
+            text-align: center;
+         }
+         .key-dec{
+            grid-column: 3;
+            grid-row: 4;
+         }
+      }
+   }
+
+
+}
