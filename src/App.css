@@ -89,3 +89,9 @@ body {
       body .wrapper .digits-grid .key-dec {
         grid-column: 3;
         grid-row: 4; }
+  @media screen and (min-width: 961px) {
+    body .wrapper {
+      left: 35%;
+      top: 20%;
+      width: 30vw;
+      height: 60vh; } }

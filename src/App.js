@@ -116,7 +116,7 @@ class App extends Component {
          <div className="wrapper">
             <div className="title">
                <h1><span>COOL</span><span>CULATOR</span></h1>
-               <p>Yup, I named it that</p>
+               <p>You got math. We do that.</p>
             </div>
             <div className="display">{displayValue}</div>
             <div className="digits-grid">
